@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试结果 - PHILOS哲学人格测试</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container result-container">
+        <!-- 标题区域 -->
+        <section class="hero-section">
+            <h1 class="hero-title">你的哲学人格测试结果</h1>
+            <p class="hero-subtitle">探索你的思想根源</p>
+        </section>
+
+        <!-- 人格代码区 -->
+        <section class="mt-6">
+            <div class="personality-code" id="personalityCode">URGO</div>
+            <div class="personality-name" id="personalityName">山脉型</div>
+            <div class="personality-academic-name" id="personalityAcademicName">本质理性的目的整体主义者</div>
+        </section>
+
+        <!-- 象征图标区 -->
+        <section class="symbol-container">
+            <div class="symbol-icon" id="symbolIcon">⛰️</div>
+            <p class="text-muted" id="symbolDescription">象征着稳定、坚固和永恒的真理</p>
+        </section>
+
+        <!-- 维度图表 -->
+        <section class="dimension-chart">
+            <h2 class="text-center">维度分析</h2>
+            <div class="card">
+                <!-- 实在观 -->
+                <div class="dimension-item">
+                    <div class="dimension-label">
+                        <span>实在观: 本质 (U)</span>
+                        <span id="realityScore">80%</span>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill positive" id="realityBar" style="width: 80%"></div>
+                    </div>
+                </div>
+                <!-- 认知观 -->
+                <div class="dimension-item">
+                    <div class="dimension-label">
+                        <span>认知观: 理性 (R)</span>
+                        <span id="cognitionScore">75%</span>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill positive" id="cognitionBar" style="width: 75%"></div>
+                    </div>
+                </div>
+                <!-- 伦理观 -->
+                <div class="dimension-item">
+                    <div class="dimension-label">
+                        <span>伦理观: 目的 (G)</span>
+                        <span id="ethicsScore">65%</span>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill positive" id="ethicsBar" style="width: 65%"></div>
+                    </div>
+                </div>
+                <!-- 社会观 -->
+                <div class="dimension-item">
+                    <div class="dimension-label">
+                        <span>社会观: 整体 (O)</span>
+                        <span id="societyScore">70%</span>
+                    </div>
+                    <div class="dimension-bar">
+                        <div class="dimension-fill positive" id="societyBar" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史人物对照 -->
+        <section class="philosopher-list">
+            <h2 class="text-center">历史与影视人物对照</h2>
+            <div class="card">
+                <div class="philosopher-item">
+                    <div class="philosopher-avatar">柏</div>
+                    <div class="philosopher-info">
+                        <div class="philosopher-name">柏拉图</div>
+                        <div class="philosopher-era">古希腊</div>
+                        <div class="philosopher-thought">理念论 - 相信永恒不变的理念世界</div>
+                    </div>
+                </div>
+                <div class="philosopher-item">
+                    <div class="philosopher-avatar">亚</div>
+                    <div class="philosopher-info">
+                        <div class="philosopher-name">亚里士多德</div>
+                        <div class="philosopher-era">古希腊</div>
+                        <div class="philosopher-thought">实体论 - 重视本质和目的因</div>
+                    </div>
+                </div>
+                <div class="philosopher-item">
+                    <div class="philosopher-avatar">笛</div>
+                    <div class="philosopher-info">
+                        <div class="philosopher-name">笛卡尔</div>
+                        <div class="philosopher-era">近代哲学</div>
+                        <div class="philosopher-thought">理性主义 - 通过逻辑推理认识世界</div>
+                    </div>
+                </div>
+                <div class="philosopher-item">
+                    <div class="philosopher-avatar">福</div>
+                    <div class="philosopher-info">
+                        <div class="philosopher-name">福尔摩斯</div>
+                        <div class="philosopher-era">影视作品</div>
+                        <div class="philosopher-thought">演绎推理 - 通过逻辑分析解决问题</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 详细分析 -->
+        <section class="analysis-section">
+            <h2 class="text-center">详细分析</h2>
+            <div class="card">
+                <!-- 人格特征 -->
+                <div>
+                    <h3 class="analysis-title">人格特征</h3>
+                    <ul class="analysis-list" id="personalityTraits">
+                        <li>相信世界有固定的本质和真理</li>
+                        <li>通过逻辑和推理认识世界</li>
+                        <li>以结果的好坏判断行为价值</li>
+                        <li>重视集体和谐和统一</li>
+                    </ul>
+                </div>
+
+                <!-- 优势 -->
+                <div class="mt-4">
+                    <h3 class="analysis-title">优势</h3>
+                    <ul class="analysis-list" id="strengths">
+                        <li>思维清晰，逻辑性强</li>
+                        <li>目标明确，坚持不懈</li>
+                        <li>重视秩序和稳定性</li>
+                        <li>善于从整体角度思考问题</li>
+                    </ul>
+                </div>
+
+                <!-- 潜在局限 -->
+                <div class="mt-4">
+                    <h3 class="analysis-title">潜在局限</h3>
+                    <ul class="analysis-list" id="weaknesses">
+                        <li>可能过于固执，缺乏灵活性</li>
+                        <li>对变化的适应性较弱</li>
+                        <li>可能忽视个体差异和特殊情况</li>
+                        <li>过度追求完美，容易产生压力</li>
+                    </ul>
+                </div>
+
+                <!-- 适合领域 -->
+                <div class="mt-4">
+                    <h3 class="analysis-title">适合领域/职业</h3>
+                    <ul class="analysis-list" id="careers">
+                        <li>科学研究</li>
+                        <li>工程技术</li>
+                        <li>法律</li>
+                        <li>教育</li>
+                        <li>管理咨询</li>
+                    </ul>
+                </div>
+
+                <!-- 哲学思想建议阅读 -->
+                <div class="mt-4">
+                    <h3 class="analysis-title">哲学思想建议阅读</h3>
+                    <ul class="analysis-list" id="recommendedBooks">
+                        <li>柏拉图《理想国》</li>
+                        <li>亚里士多德《形而上学》</li>
+                        <li>笛卡尔《第一哲学沉思集》</li>
+                        <li>康德《纯粹理性批判》</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 附加功能 -->
+        <section class="mt-6 text-center">
+            <div class="grid grid-cols-3 gap-4">
+                <button class="btn btn-primary" onclick="shareResult()">分享结果</button>
+                <button class="btn btn-secondary" onclick="retakeTest()">重新测试</button>
+                <button class="btn btn-outline" onclick="compareTypes()">对比其他类型</button>
+            </div>
+        </section>
+
+        <!-- 免责声明 -->
+        <section class="mt-6">
+            <div class="disclaimer">
+                <div class="disclaimer-title">免责声明</div>
+                <p>本测试仅供娱乐和自我探索，不构成专业心理评估。测试结果基于用户自陈回答，可能受到多种因素影响，不应作为任何形式的诊断或决策依据。</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">PHILOS哲学人格测试 &copy; 2026</p>
+            <p class="footer-text">探索思想根源，发现哲学自我</p>
+        </div>
+    </footer>
+
+    <script>
+        // 结果页面逻辑
+        const personalityTypes = {
+            "URGO": {
+                "name": "山脉型",
+                "academicName": "本质理性的目的整体主义者",
+                "symbol": "⛰️",
+                "description": "象征着稳定、坚固和永恒的真理",
+                "color": "#F97316",
+                "philosophers": [
+                    {"name": "柏拉图", "era": "古希腊", "thought": "理念论 - 相信永恒不变的理念世界"},
+                    {"name": "亚里士多德", "era": "古希腊", "thought": "实体论 - 重视本质和目的因"},
+                    {"name": "笛卡尔", "era": "近代哲学", "thought": "理性主义 - 通过逻辑推理认识世界"}
+                ],
+                "traits": ["相信世界有固定的本质和真理", "通过逻辑和推理认识世界", "以结果的好坏判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["思维清晰，逻辑性强", "目标明确，坚持不懈", "重视秩序和稳定性", "善于从整体角度思考问题"],
+                "weaknesses": ["可能过于固执，缺乏灵活性", "对变化的适应性较弱", "可能忽视个体差异和特殊情况", "过度追求完美，容易产生压力"],
+                "careers": ["科学研究", "工程技术", "法律", "教育", "管理咨询"],
+                "books": ["柏拉图《理想国》", "亚里士多德《形而上学》", "笛卡尔《第一哲学沉思集》", "康德《纯粹理性批判》"]
+            },
+            "URDO": {
+                "name": "神庙型",
+                "academicName": "本质理性的义务整体主义者",
+                "symbol": "🛕",
+                "description": "象征着神圣的秩序和道德法则",
+                "color": "#6B7280",
+                "philosophers": [
+                    {"name": "康德", "era": "近代哲学", "thought": "义务论 - 强调道德法则的普遍性"},
+                    {"name": "苏格拉底", "era": "古希腊", "thought": "德性即知识 - 重视道德自我省察"},
+                    {"name": "孔子", "era": "中国古代", "thought": "仁 - 强调道德责任和义务"}
+                ],
+                "traits": ["相信世界有固定的本质和真理", "通过逻辑和推理认识世界", "以原则的对错判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["道德观念强烈", "坚持原则", "重视传统和秩序", "具有责任感"],
+                "weaknesses": ["可能过于教条", "缺乏灵活性", "对新观念接受度低", "可能忽视实际效果"],
+                "careers": ["法律", "教育", "宗教工作", "社会工作", "公务员"],
+                "books": ["康德《道德形而上学奠基》", "苏格拉底《对话录》", "孔子《论语》", "孟子《孟子》"]
+            },
+            "URGM": {
+                "name": "灯塔型",
+                "academicName": "本质理性的目的多元主义者",
+                "symbol": "💡",
+                "description": "象征着理性的光芒和指引",
+                "color": "#F97316",
+                "philosophers": [
+                    {"name": "培根", "era": "近代哲学", "thought": "经验主义 - 强调知识的实用性"},
+                    {"name": "霍布斯", "era": "近代哲学", "thought": "社会契约论 - 重视个人权利"},
+                    {"name": "洛克", "era": "近代哲学", "thought": "白板说 - 强调经验的重要性"}
+                ],
+                "traits": ["相信世界有固定的本质和真理", "通过逻辑和推理认识世界", "以结果的好坏判断行为价值", "重视个体差异和自由"],
+                "strengths": ["理性思考", "注重实际效果", "尊重个人权利", "善于创新"],
+                "weaknesses": ["可能过于功利", "忽视情感因素", "对传统价值重视不够", "可能缺乏集体意识"],
+                "careers": ["商业", "科技", "创业", "咨询", "媒体"],
+                "books": ["培根《新工具》", "霍布斯《利维坦》", "洛克《人类理解论》", "密尔《功利主义》"]
+            },
+            "URDM": {
+                "name": "法典型",
+                "academicName": "本质理性的义务多元主义者",
+                "symbol": "⚖️",
+                "description": "象征着公正、理性和法律秩序",
+                "color": "#6B7280",
+                "philosophers": [
+                    {"name": "西塞罗", "era": "古罗马", "thought": "自然法 - 强调法律的理性基础"},
+                    {"name": "洛克", "era": "近代哲学", "thought": "自然权利 - 强调个人自由"},
+                    {"name": "孟德斯鸠", "era": "近代哲学", "thought": "三权分立 - 强调权力制衡"}
+                ],
+                "traits": ["相信世界有固定的本质和真理", "通过逻辑和推理认识世界", "以原则的对错判断行为价值", "重视个体差异和自由"],
+                "strengths": ["公正客观", "理性思考", "尊重法律", "保护个人权利"],
+                "weaknesses": ["可能过于强调规则", "缺乏灵活性", "对情感因素考虑不足", "可能忽视社会整体利益"],
+                "careers": ["法律", "政治", "管理", "人力资源", "社会服务"],
+                "books": ["西塞罗《论法律》", "洛克《政府论》", "孟德斯鸠《论法的精神》", "卢梭《社会契约论》"]
+            },
+            "UXGO": {
+                "name": "河流型",
+                "academicName": "本质体验的目的整体主义者",
+                "symbol": "🌊",
+                "description": "象征着流动、变化和生命的活力",
+                "color": "#F97316",
+                "philosophers": [
+                    {"name": "赫拉克利特", "era": "古希腊", "thought": "流变说 - 万物皆流"},
+                    {"name": "尼采", "era": "现代哲学", "thought": "权力意志 - 强调生命的活力"},
+                    {"name": "柏格森", "era": "现代哲学", "thought": "生命哲学 - 强调直觉和绵延"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以结果的好坏判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["适应性强", "富有创造力", "注重实际效果", "善于团队合作"],
+                "weaknesses": ["可能缺乏稳定性", "容易冲动", "对理论思考重视不够", "可能忽视长远规划"],
+                "careers": ["艺术", "设计", "市场营销", "教育", "社会工作"],
+                "books": ["赫拉克利特《残篇》", "尼采《查拉图斯特拉如是说》", "柏格森《创造进化论》", "德勒兹《差异与重复》"]
+            },
+            "UXDO": {
+                "name": "家族徽章型",
+                "academicName": "本质体验的义务整体主义者",
+                "symbol": "🏛️",
+                "description": "象征着传统、家族和文化传承",
+                "color": "#6B7280",
+                "philosophers": [
+                    {"name": "黑格尔", "era": "德国古典哲学", "thought": "辩证法 - 强调历史的发展"},
+                    {"name": "维科", "era": "近代哲学", "thought": "历史哲学 - 强调文化传统"},
+                    {"name": "孔子", "era": "中国古代", "thought": "礼 - 强调文化传承"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以原则的对错判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["重视传统", "善于理解文化差异", "具有社会责任感", "注重人际关系"],
+                "weaknesses": ["可能过于保守", "对新观念接受度低", "缺乏创新精神", "可能忽视个人权利"],
+                "careers": ["教育", "文化遗产", "社会工作", "管理", "咨询"],
+                "books": ["黑格尔《历史哲学》", "维科《新科学》", "孔子《论语》", "阿诺德《文化与无政府状态》"]
+            },
+            "UXGM": {
+                "name": "花园型",
+                "academicName": "本质体验的目的多元主义者",
+                "symbol": "🌷",
+                "description": "象征着多样性、美丽和自然的生长",
+                "color": "#F97316",
+                "philosophers": [
+                    {"name": "休谟", "era": "近代哲学", "thought": "经验主义 - 强调感觉经验"},
+                    {"name": "卢梭", "era": "近代哲学", "thought": "自然状态 - 强调自然情感"},
+                    {"name": "庄子", "era": "中国古代", "thought": "自然无为 - 强调顺应自然"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以结果的好坏判断行为价值", "重视个体差异和自由"],
+                "strengths": ["开放包容", "富有创造力", "注重个人体验", "善于适应变化"],
+                "weaknesses": ["可能缺乏稳定性", "容易随波逐流", "对理论思考重视不够", "可能忽视社会规则"],
+                "careers": ["艺术", "设计", "媒体", "市场营销", "旅游"],
+                "books": ["休谟《人性论》", "卢梭《爱弥儿》", "庄子《庄子》", "梭罗《瓦尔登湖》"]
+            },
+            "UXDM": {
+                "name": "手工艺型",
+                "academicName": "本质体验的义务多元主义者",
+                "symbol": "🛠️",
+                "description": "象征着技艺、创造和个人的匠心",
+                "color": "#6B7280",
+                "philosophers": [
+                    {"name": "亚里士多德", "era": "古希腊", "thought": "实践智慧 - 强调具体情境中的判断"},
+                    {"name": "马克思", "era": "现代哲学", "thought": "实践唯物主义 - 强调劳动的重要性"},
+                    {"name": "墨子", "era": "中国古代", "thought": "兼爱 - 强调实际效用"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以原则的对错判断行为价值", "重视个体差异和自由"],
+                "strengths": ["动手能力强", "注重实际效果", "富有创造力", "尊重个人差异"],
+                "weaknesses": ["可能缺乏理论深度", "对抽象思考不感兴趣", "可能忽视长远规划", "容易满足于现状"],
+                "careers": ["手工艺", "设计", "技术", "创业", "教育"],
+                "books": ["亚里士多德《尼各马可伦理学》", "马克思《1844年经济学哲学手稿》", "墨子《墨子》", "杜威《民主与教育》"]
+            },
+            "VRGO": {
+                "name": "季风型",
+                "academicName": "流变理性的目的整体主义者",
+                "symbol": "🌪️",
+                "description": "象征着变革、力量和理性的风暴",
+                "color": "#DC2626",
+                "philosophers": [
+                    {"name": "马克思", "era": "现代哲学", "thought": "历史唯物主义 - 强调社会变革"},
+                    {"name": "黑格尔", "era": "德国古典哲学", "thought": "辩证法 - 强调历史发展"},
+                    {"name": "卢梭", "era": "近代哲学", "thought": "社会契约 - 强调民主变革"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过逻辑和推理认识世界", "以结果的好坏判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["富有洞察力", "善于分析问题", "注重社会进步", "具有变革精神"],
+                "weaknesses": ["可能过于激进", "对传统价值重视不够", "容易理想化", "可能忽视个体差异"],
+                "careers": ["政治", "社会活动", "教育", "媒体", "咨询"],
+                "books": ["马克思《资本论》", "黑格尔《精神现象学》", "卢梭《社会契约论》", "托克维尔《论美国的民主》"]
+            },
+            "VRDO": {
+                "name": "日晷型",
+                "academicName": "流变理性的义务整体主义者",
+                "symbol": "⏳",
+                "description": "象征着时间的秩序和宇宙的法则",
+                "color": "#374151",
+                "philosophers": [
+                    {"name": "斯宾诺莎", "era": "近代哲学", "thought": "泛神论 - 强调宇宙的必然法则"},
+                    {"name": "莱布尼茨", "era": "近代哲学", "thought": "单子论 - 强调宇宙的和谐"},
+                    {"name": "老子", "era": "中国古代", "thought": "道 - 强调自然法则"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过逻辑和推理认识世界", "以原则的对错判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["思维深邃", "善于系统思考", "重视宇宙秩序", "具有整体观念"],
+                "weaknesses": ["可能过于抽象", "对实际问题关注不够", "缺乏行动力", "可能忽视个体需求"],
+                "careers": ["哲学", "科学", "宗教", "教育", "研究"],
+                "books": ["斯宾诺莎《伦理学》", "莱布尼茨《单子论》", "老子《道德经》", "柏拉图《蒂迈欧篇》"]
+            },
+            "VRGM": {
+                "name": "航海图型",
+                "academicName": "理性流变的实用多元主义者",
+                "symbol": "🧭",
+                "description": "象征着探索、导航和理性的指引",
+                "color": "#DC2626",
+                "philosophers": [
+                    {"name": "笛卡儿", "era": "近代哲学", "thought": "怀疑方法 - 强调理性的探索"},
+                    {"name": "培根", "era": "近代哲学", "thought": "归纳法 - 强调科学探索"},
+                    {"name": "伽利略", "era": "近代科学", "thought": "实验方法 - 强调观察和验证"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过逻辑和推理认识世界", "以结果的好坏判断行为价值", "重视个体差异和自由"],
+                "strengths": ["富有探索精神", "善于解决问题", "注重实际效果", "尊重个人自由"],
+                "weaknesses": ["可能过于理性化", "对情感因素考虑不足", "容易忽视传统价值", "可能缺乏耐心"],
+                "careers": ["科学", "技术", "创业", "咨询", "教育"],
+                "books": ["笛卡儿《方法谈》", "培根《新工具》", "伽利略《关于托勒密和哥白尼两大世界体系的对话》", "牛顿《自然哲学的数学原理》"]
+            },
+            "VRDM": {
+                "name": "弈棋型",
+                "academicName": "流变理性的义务多元主义者",
+                "symbol": "♟️",
+                "description": "象征着策略、逻辑和竞争的智慧",
+                "color": "#374151",
+                "philosophers": [
+                    {"name": "马基雅维利", "era": "近代哲学", "thought": "君主论 - 强调政治策略"},
+                    {"name": "霍布斯", "era": "近代哲学", "thought": "利维坦 - 强调权力的逻辑"},
+                    {"name": "尼采", "era": "现代哲学", "thought": "权力意志 - 强调生命的竞争"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过逻辑和推理认识世界", "以原则的对错判断行为价值", "重视个体差异和自由"],
+                "strengths": ["善于策略思考", "逻辑分析能力强", "富有竞争精神", "尊重个人能力"],
+                "weaknesses": ["可能过于冷酷", "对道德价值考虑不足", "容易忽视合作", "可能产生过度竞争"],
+                "careers": ["商业", "法律", "政治", "体育", "军事"],
+                "books": ["马基雅维利《君主论》", "霍布斯《利维坦》", "尼采《善恶的彼岸》", "孙子《孙子兵法》"]
+            },
+            "VXGO": {
+                "name": "潮汐型",
+                "academicName": "流变体验的目的整体主义者",
+                "symbol": "🌅",
+                "description": "象征着变化、美感和情感的起伏",
+                "color": "#DC2626",
+                "philosophers": [
+                    {"name": "席勒", "era": "德国古典哲学", "thought": "审美教育 - 强调美感"},
+                    {"name": "叔本华", "era": "现代哲学", "thought": "意志哲学 - 强调情感体验"},
+                    {"name": "克尔凯郭尔", "era": "现代哲学", "thought": "存在主义 - 强调个人体验"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以结果的好坏判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["富有艺术感", "善于理解他人情感", "注重美感体验", "具有同情心"],
+                "weaknesses": ["可能过于情绪化", "对理性思考重视不够", "容易受外界影响", "可能缺乏稳定性"],
+                "careers": ["艺术", "文学", "心理学", "教育", "社会服务"],
+                "books": ["席勒《审美教育书简》", "叔本华《作为意志和表象的世界》", "克尔凯郭尔《恐惧与颤栗》", "萨特《存在与虚无》"]
+            },
+            "VXDO": {
+                "name": "篝火型",
+                "academicName": "流变体验的义务整体主义者",
+                "symbol": "🔥",
+                "description": "象征着温暖、光明和精神的火焰",
+                "color": "#374151",
+                "philosophers": [
+                    {"name": "克尔凯郭尔", "era": "现代哲学", "thought": "信仰跳跃 - 强调个人信仰"},
+                    {"name": "陀思妥耶夫斯基", "era": "现代文学", "thought": "存在主义 - 强调精神探索"},
+                    {"name": "奥古斯丁", "era": "中世纪", "thought": "忏悔录 - 强调精神皈依"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以原则的对错判断行为价值", "重视集体和谐和统一"],
+                "strengths": ["富有精神追求", "善于反思自我", "注重道德修养", "具有奉献精神"],
+                "weaknesses": ["可能过于内向", "对物质世界关注不够", "容易陷入精神困扰", "可能忽视现实问题"],
+                "careers": ["宗教", "教育", "心理咨询", "社会工作", "文学"],
+                "books": ["克尔凯郭尔《非此即彼》", "陀思妥耶夫斯基《罪与罚》", "奥古斯丁《忏悔录》", "托尔斯泰《安娜·卡列尼娜》"]
+            },
+            "VXGM": {
+                "name": "集市型",
+                "academicName": "流变体验的目的多元主义者",
+                "symbol": "🛒",
+                "description": "象征着多样、热闹和生活的活力",
+                "color": "#DC2626",
+                "philosophers": [
+                    {"name": "伊壁鸠鲁", "era": "古希腊", "thought": "快乐主义 - 强调生活的快乐"},
+                    {"name": "边沁", "era": "近代哲学", "thought": "功利主义 - 强调最大幸福"},
+                    {"name": "密尔", "era": "近代哲学", "thought": "功利主义 - 强调质量的快乐"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以结果的好坏判断行为价值", "重视个体差异和自由"],
+                "strengths": ["开放包容", "善于享受生活", "注重实际幸福", "尊重个人选择"],
+                "weaknesses": ["可能过于注重享乐", "对精神追求重视不够", "容易缺乏目标", "可能忽视长远规划"],
+                "careers": ["市场营销", "娱乐", "旅游", "餐饮", "媒体"],
+                "books": ["伊壁鸠鲁《致美诺寇的信》", "边沁《道德与立法原理导论》", "密尔《功利主义》", "福柯《性史》"]
+            },
+            "VXDM": {
+                "name": "万花筒型",
+                "academicName": "流变体验的义务多元主义者",
+                "symbol": "🔮",
+                "description": "象征着多样、变幻和无限的可能性",
+                "color": "#374151",
+                "philosophers": [
+                    {"name": "德勒兹", "era": "当代哲学", "thought": "差异哲学 - 强调多样性"},
+                    {"name": "德里达", "era": "当代哲学", "thought": "解构主义 - 强调文本的开放性"},
+                    {"name": "福柯", "era": "当代哲学", "thought": "知识考古学 - 强调话语的多样性"}
+                ],
+                "traits": ["相信世界处于永恒变化中", "通过感受和经验认识世界", "以原则的对错判断行为价值", "重视个体差异和自由"],
+                "strengths": ["开放创新", "善于接受新观念", "注重个体差异", "富有想象力"],
+                "weaknesses": ["可能过于碎片化", "对传统价值缺乏尊重", "容易陷入相对主义", "可能缺乏稳定性"],
+                "careers": ["艺术", "设计", "媒体", "学术", "创意产业"],
+                "books": ["德勒兹《差异与重复》", "德里达《论文字学》", "福柯《疯癫与文明》", "巴特《神话学》"]
+            }
+        };
+
+        // 色彩方案
+        const colorScheme = {
+            "URGO": {"primary": "#F97316", "light": "#FB923C", "dark": "#EA580C"},
+            "UXGO": {"primary": "#F97316", "light": "#FB923C", "dark": "#EA580C"},
+            "URGM": {"primary": "#F97316", "light": "#FB923C", "dark": "#EA580C"},
+            "UXGM": {"primary": "#F97316", "light": "#FB923C", "dark": "#EA580C"},
+            "URDO": {"primary": "#6B7280", "light": "#9CA3AF", "dark": "#4B5563"},
+            "UXDO": {"primary": "#6B7280", "light": "#9CA3AF", "dark": "#4B5563"},
+            "URDM": {"primary": "#6B7280", "light": "#9CA3AF", "dark": "#4B5563"},
+            "UXDM": {"primary": "#6B7280", "light": "#9CA3AF", "dark": "#4B5563"},
+            "VRGO": {"primary": "#DC2626", "light": "#F87171", "dark": "#B91C1C"},
+            "VXGO": {"primary": "#DC2626", "light": "#F87171", "dark": "#B91C1C"},
+            "VRGM": {"primary": "#DC2626", "light": "#F87171", "dark": "#B91C1C"},
+            "VXGM": {"primary": "#DC2626", "light": "#F87171", "dark": "#B91C1C"},
+            "VRDO": {"primary": "#374151", "light": "#6B7280", "dark": "#1F2937"},
+            "VXDO": {"primary": "#374151", "light": "#6B7280", "dark": "#1F2937"},
+            "VRDM": {"primary": "#374151", "light": "#6B7280", "dark": "#1F2937"},
+            "VXDM": {"primary": "#374151", "light": "#6B7280", "dark": "#1F2937"}
+        };
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取测试结果
+            const result = localStorage.getItem('philos_result');
+            
+            if (result) {
+                const data = JSON.parse(result);
+                const code = data.code;
+                const scores = data.scores;
+                
+                // 更新人格信息
+                updatePersonalityInfo(code);
+                
+                // 更新维度图表
+                updateDimensionCharts(scores);
+            } else {
+                // 默认显示URGO类型
+                updatePersonalityInfo('URGO');
+                updateDimensionCharts({
+                    U: 80, V: 20,
+                    R: 75, X: 25,
+                    G: 65, D: 35,
+                    O: 70, M: 30
+                });
+            }
+        });
+
+        // 更新人格信息
+        function updatePersonalityInfo(code) {
+            const type = personalityTypes[code];
+            if (type) {
+                document.getElementById('personalityCode').textContent = code;
+                document.getElementById('personalityName').textContent = type.name;
+                document.getElementById('personalityAcademicName').textContent = type.academicName || '';
+                document.getElementById('symbolIcon').textContent = type.symbol;
+                document.getElementById('symbolDescription').textContent = type.description;
+                
+                // 更新颜色
+                const color = colorScheme[code].primary;
+                document.getElementById('personalityCode').style.color = color;
+                
+                // 更新哲学家信息
+                const philosopherContainer = document.querySelector('.philosopher-list .card');
+                philosopherContainer.innerHTML = '';
+                
+                // 添加哲学家
+                type.philosophers.forEach((philosopher, index) => {
+                    const initial = philosopher.name.charAt(0);
+                    const philosopherHTML = `
+                        <div class="philosopher-item">
+                            <div class="philosopher-avatar">${initial}</div>
+                            <div class="philosopher-info">
+                                <div class="philosopher-name">${philosopher.name}</div>
+                                <div class="philosopher-era">${philosopher.era}</div>
+                                <div class="philosopher-thought">${philosopher.thought}</div>
+                            </div>
+                        </div>
+                    `;
+                    philosopherContainer.innerHTML += philosopherHTML;
+                });
+                
+                // 添加影视作品人物
+                const movieCharacters = [
+                    {
+                        name: "福尔摩斯",
+                        era: "影视作品",
+                        thought: "演绎推理 - 通过逻辑分析解决问题"
+                    },
+                    {
+                        name: "蜘蛛侠",
+                        era: "影视作品",
+                        thought: "责任与义务 - 能力越大，责任越大"
+                    }
+                ];
+                
+                movieCharacters.forEach((character, index) => {
+                    const initial = character.name.charAt(0);
+                    const characterHTML = `
+                        <div class="philosopher-item">
+                            <div class="philosopher-avatar">${initial}</div>
+                            <div class="philosopher-info">
+                                <div class="philosopher-name">${character.name}</div>
+                                <div class="philosopher-era">${character.era}</div>
+                                <div class="philosopher-thought">${character.thought}</div>
+                            </div>
+                        </div>
+                    `;
+                    philosopherContainer.innerHTML += characterHTML;
+                });
+                
+                // 更新分析信息
+                document.getElementById('personalityTraits').innerHTML = type.traits.map(trait => `<li>${trait}</li>`).join('');
+                document.getElementById('strengths').innerHTML = type.strengths.map(strength => `<li>${strength}</li>`).join('');
+                document.getElementById('weaknesses').innerHTML = type.weaknesses.map(weakness => `<li>${weakness}</li>`).join('');
+                document.getElementById('careers').innerHTML = type.careers.map(career => `<li>${career}</li>`).join('');
+                document.getElementById('recommendedBooks').innerHTML = type.books.map(book => `<li>${book}</li>`).join('');
+            }
+        }
+
+        // 更新维度图表
+        function updateDimensionCharts(scores) {
+            // 计算百分比
+            const realityScore = Math.round((scores.U / (scores.U + scores.V)) * 100);
+            const cognitionScore = Math.round((scores.R / (scores.R + scores.X)) * 100);
+            const ethicsScore = Math.round((scores.G / (scores.G + scores.D)) * 100);
+            const societyScore = Math.round((scores.O / (scores.O + scores.M)) * 100);
+            
+            // 更新分数和进度条
+            document.getElementById('realityScore').textContent = `${realityScore}%`;
+            document.getElementById('realityBar').style.width = `${realityScore}%`;
+            
+            document.getElementById('cognitionScore').textContent = `${cognitionScore}%`;
+            document.getElementById('cognitionBar').style.width = `${cognitionScore}%`;
+            
+            document.getElementById('ethicsScore').textContent = `${ethicsScore}%`;
+            document.getElementById('ethicsBar').style.width = `${ethicsScore}%`;
+            
+            document.getElementById('societyScore').textContent = `${societyScore}%`;
+            document.getElementById('societyBar').style.width = `${societyScore}%`;
+        }
+
+        // 分享结果
+        function shareResult() {
+            const code = document.getElementById('personalityCode').textContent;
+            const name = document.getElementById('personalityName').textContent;
+            const message = `我的PHILOS哲学人格测试结果是${code}${name}！来探索你的思想根源吧！`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'PHILOS哲学人格测试结果',
+                    text: message,
+                    url: window.location.origin
+                });
+            } else {
+                // 复制到剪贴板
+                navigator.clipboard.writeText(message + ' ' + window.location.origin).then(() => {
+                    alert('结果已复制到剪贴板！');
+                });
+            }
+        }
+
+        // 重新测试
+        function retakeTest() {
+            if (confirm('确定要重新测试吗？当前结果将被清除。')) {
+                localStorage.removeItem('philos_result');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // 对比其他类型
+        function compareTypes() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

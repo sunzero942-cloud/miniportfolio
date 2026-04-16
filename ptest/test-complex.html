@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完整版测试 - PHILOS哲学人格测试</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="assets/js/questions.js"></script>
+</head>
+<body>
+    <div class="container test-container">
+        <!-- 标题区域 -->
+        <section class="mt-4">
+            <h1 class="text-center">完整版测试</h1>
+            <p class="text-center text-muted">55题 · 约25分钟</p>
+        </section>
+
+        <!-- 进度条 -->
+        <section class="mt-4">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="text-center text-muted" id="progressText">1/55</div>
+        </section>
+
+        <!-- 题目区域 -->
+        <section class="mt-6 question-container">
+            <div class="question-number" id="questionNumber">第1题</div>
+            <div class="question-text" id="questionText">世界的本质是固定不变的，还是处于不断变化之中？</div>
+            <div class="option-container">
+                <button class="option-btn" id="optionA" onclick="selectOption('A')">
+                    世界有固定的本质和真理
+                </button>
+                <button class="option-btn" id="optionB" onclick="selectOption('B')">
+                    世界处于永恒的变化之中
+                </button>
+            </div>
+        </section>
+
+        <!-- 导航按钮 -->
+        <section class="nav-buttons">
+            <button class="btn btn-outline" id="prevBtn" onclick="prevQuestion()">上一题</button>
+            <button class="btn btn-accent" id="submitBtn" onclick="submitTest()" style="display: none;">提交测试</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">下一题</button>
+        </section>
+
+        <!-- 暂停按钮 -->
+        <section class="mt-4 text-center">
+            <button class="btn btn-outline" onclick="pauseTest()">暂停测试</button>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">PHILOS哲学人格测试 &copy; 2026</p>
+            <p class="footer-text">探索思想根源，发现哲学自我</p>
+        </div>
+    </footer>
+
+    <script>
+        // 完整版测试逻辑
+        let currentQuestion = 0;
+        let answers = {};
+        let testQuestions = [];
+
+        // 初始化测试
+        document.addEventListener('DOMContentLoaded', function() {
+            // 加载题目数据
+            loadQuestions();
+            
+            // 加载保存的进度
+            loadProgress();
+            
+            // 显示当前题目
+            showQuestion();
+            
+            // 绑定离开页面事件
+            window.addEventListener('beforeunload', function(e) {
+                if (currentQuestion < testQuestions.length - 1) {
+                    e.preventDefault();
+                    e.returnValue = '';
+                    return '';
+                }
+            });
+        });
+
+        // 加载题目数据
+        function loadQuestions() {
+            // 使用 questions.js 文件中的完整版题目数据
+            if (typeof questions !== 'undefined' && questions.complex) {
+                testQuestions = questions.complex;
+            } else {
+                // 后备方案，以防 questions.js 未加载
+                testQuestions = [
+                    {
+                        id: 1,
+                        category: "reality",
+                        question: "当你面对工作中的新挑战时，你更倾向于？",
+                        options: [
+                            {text: "寻找类似情况的处理方法和规律", value: "U"},
+                            {text: "根据具体情况灵活应对", value: "V"}
+                        ]
+                    },
+                    {
+                        id: 2,
+                        category: "cognition",
+                        question: "在学习一门新技能时，你通常会？",
+                        options: [
+                            {text: "先了解原理和方法，再实践", value: "R"},
+                            {text: "直接动手尝试，从错误中学习", value: "X"}
+                        ]
+                    },
+                    {
+                        id: 3,
+                        category: "ethics",
+                        question: "当你发现同事在工作中犯错时，你会？",
+                        options: [
+                            {text: "考虑他的处境和错误的影响，决定如何处理", value: "G"},
+                            {text: "基于诚实和责任，及时指出错误", value: "D"}
+                        ]
+                    },
+                    {
+                        id: 4,
+                        category: "society",
+                        question: "在家庭决策中，你更重视？",
+                        options: [
+                            {text: "全家的整体利益和和谐", value: "O"},
+                            {text: "每个家庭成员的个人需求", value: "M"}
+                        ]
+                    },
+                    {
+                        id: 5,
+                        category: "reality",
+                        question: "当你购买一件商品时，你更关注？",
+                        options: [
+                            {text: "商品的质量和性价比", value: "U"},
+                            {text: "购买时的体验和个人喜好", value: "V"}
+                        ]
+                    }
+                ];
+            }
+        }
+
+        // 加载保存的进度
+        function loadProgress() {
+            const savedProgress = localStorage.getItem('philos_complex_progress');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                currentQuestion = progress.currentQuestion || 0;
+                answers = progress.answers || {};
+            }
+        }
+
+        // 保存进度
+        function saveProgress() {
+            const progress = {
+                currentQuestion,
+                answers
+            };
+            localStorage.setItem('philos_complex_progress', JSON.stringify(progress));
+        }
+
+        // 显示当前题目
+        function showQuestion() {
+            if (currentQuestion >= 0 && currentQuestion < testQuestions.length) {
+                const question = testQuestions[currentQuestion];
+                
+                // 更新题目信息
+                document.getElementById('questionNumber').textContent = `第${currentQuestion + 1}题`;
+                document.getElementById('questionText').textContent = question.question;
+                document.getElementById('optionA').textContent = question.options[0].text;
+                document.getElementById('optionB').textContent = question.options[1].text;
+                
+                // 更新进度条
+                const progress = ((currentQuestion + 1) / testQuestions.length) * 100;
+                document.getElementById('progressBar').style.width = `${progress}%`;
+                document.getElementById('progressText').textContent = `${currentQuestion + 1}/${testQuestions.length}`;
+                
+                // 更新选项状态
+                resetOptions();
+                if (answers[currentQuestion]) {
+                    const selectedOption = answers[currentQuestion];
+                    if (selectedOption === 'A') {
+                        document.getElementById('optionA').classList.add('selected');
+                    } else {
+                        document.getElementById('optionB').classList.add('selected');
+                    }
+                }
+                
+                // 更新导航按钮状态
+                document.getElementById('prevBtn').disabled = currentQuestion === 0;
+                
+                if (currentQuestion === testQuestions.length - 1) {
+                    document.getElementById('nextBtn').style.display = 'none';
+                    document.getElementById('submitBtn').style.display = 'block';
+                } else {
+                    document.getElementById('nextBtn').style.display = 'block';
+                    document.getElementById('submitBtn').style.display = 'none';
+                }
+            }
+        }
+
+        // 重置选项状态
+        function resetOptions() {
+            document.getElementById('optionA').classList.remove('selected');
+            document.getElementById('optionB').classList.remove('selected');
+        }
+
+        // 选择选项
+        function selectOption(option) {
+            answers[currentQuestion] = option;
+            saveProgress();
+            showQuestion();
+        }
+
+        // 上一题
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // 下一题
+        function nextQuestion() {
+            if (currentQuestion < testQuestions.length - 1) {
+                // 检查是否已选择答案
+                if (!answers[currentQuestion]) {
+                    alert('请选择一个选项');
+                    return;
+                }
+                currentQuestion++;
+                showQuestion();
+            }
+        }
+
+        // 提交测试
+        function submitTest() {
+            // 检查是否所有题目都已回答
+            for (let i = 0; i < testQuestions.length; i++) {
+                if (!answers[i]) {
+                    alert('请回答所有题目');
+                    return;
+                }
+            }
+            
+            // 计算得分并跳转到结果页面
+            calculateScore();
+        }
+
+        // 计算得分
+        function calculateScore() {
+            // 这里会在scoring.js创建后替换为真实逻辑
+            // 临时逻辑
+            const scores = {
+                U: 0, V: 0,
+                R: 0, X: 0,
+                G: 0, D: 0,
+                O: 0, M: 0
+            };
+            
+            // 统计得分
+            for (let i = 0; i < testQuestions.length; i++) {
+                if (answers[i]) {
+                    const optionIndex = answers[i] === 'A' ? 0 : 1;
+                    const value = testQuestions[i].options[optionIndex].value;
+                    scores[value]++;
+                }
+            }
+            
+            // 生成人格代码
+            let code = '';
+            code += scores.U > scores.V ? 'U' : 'V';
+            code += scores.R > scores.X ? 'R' : 'X';
+            code += scores.G > scores.D ? 'G' : 'D';
+            code += scores.O > scores.M ? 'O' : 'M';
+            
+            // 保存结果
+            localStorage.setItem('philos_result', JSON.stringify({
+                code: code,
+                scores: scores,
+                version: 'complex'
+            }));
+            
+            // 清除进度
+            localStorage.removeItem('philos_complex_progress');
+            
+            // 跳转到结果页面
+            window.location.href = 'result.html';
+        }
+
+        // 暂停测试
+        function pauseTest() {
+            if (confirm('确定要暂停测试吗？你的进度会被保存。')) {
+                saveProgress();
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

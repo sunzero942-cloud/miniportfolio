@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>人生重启模拟器——这把稳了？</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    
+    <!-- 声明页 -->
+    <div id="disclaimer-page" class="page active">
+      <div class="page-content">
+        <div class="title-section">
+          <h1 class="game-title">人生重启模拟器</h1>
+          <p class="game-subtitle">——这把稳了？</p>
+        </div>
+        
+        <div class="disclaimer-box">
+          <h2>游戏声明</h2>
+          <div class="disclaimer-content">
+            <p>1. 本游戏为虚构作品，所有剧情、角色、结局均为游戏设计需要，不代表对现实人生的任何评判或建议。</p>
+            <p>2. 游戏中的"成功"与"失败"仅指游戏内的结局判定，不代表对现实人生价值的定义。每个人的人生都有独特的精彩。</p>
+            <p>3. 游戏涉及部分人生困境的描述（如疾病、挫折等），如有不适请及时退出游戏。</p>
+            <p>4. 游戏内容纯属娱乐，请勿过度代入。</p>
+            <p>5. 如遇心理困扰，请寻求专业帮助。</p>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary" id="start-btn">我已了解，开始游戏</button>
+      </div>
+    </div>
+    
+    <!-- 属性选择页 -->
+    <div id="attribute-page" class="page">
+      <div class="page-content">
+        <div class="header-section">
+          <h2>选择你的初始属性</h2>
+          <p class="hint">剩余点数：<span id="total-points" class="highlight">0</span> / 100</p>
+        </div>
+        
+        <div class="character-preview">
+          <div class="pixel-character" id="attribute-character">
+            <div class="character-body"></div>
+          </div>
+        </div>
+        
+        <div class="attributes-container">
+          <div class="attribute-item" data-attr="intelligence">
+            <div class="attr-header">
+              <span class="attr-icon">🧠</span>
+              <span class="attr-name">智力</span>
+              <span class="attr-value" id="intelligence-value">10</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" class="attr-slider" id="intelligence-slider" 
+                     min="5" max="50" value="10" data-attr="intelligence">
+              <div class="slider-track">
+                <div class="slider-fill" id="intelligence-fill"></div>
+              </div>
+            </div>
+            <p class="attr-desc">影响学习、工作相关的成功率</p>
+          </div>
+          
+          <div class="attribute-item" data-attr="physique">
+            <div class="attr-header">
+              <span class="attr-icon">💪</span>
+              <span class="attr-name">体质</span>
+              <span class="attr-value" id="physique-value">10</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" class="attr-slider" id="physique-slider" 
+                     min="5" max="50" value="10" data-attr="physique">
+              <div class="slider-track">
+                <div class="slider-fill" id="physique-fill"></div>
+              </div>
+            </div>
+            <p class="attr-desc">影响健康、运动相关的成功率</p>
+          </div>
+          
+          <div class="attribute-item" data-attr="charm">
+            <div class="attr-header">
+              <span class="attr-icon">✨</span>
+              <span class="attr-name">魅力</span>
+              <span class="attr-value" id="charm-value">10</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" class="attr-slider" id="charm-slider" 
+                     min="5" max="50" value="10" data-attr="charm">
+              <div class="slider-track">
+                <div class="slider-fill" id="charm-fill"></div>
+              </div>
+            </div>
+            <p class="attr-desc">影响社交、人际相关的成功率</p>
+          </div>
+          
+          <div class="attribute-item" data-attr="luck">
+            <div class="attr-header">
+              <span class="attr-icon">🍀</span>
+              <span class="attr-name">运气</span>
+              <span class="attr-value" id="luck-value">10</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" class="attr-slider" id="luck-slider" 
+                     min="5" max="50" value="10" data-attr="luck">
+              <div class="slider-track">
+                <div class="slider-fill" id="luck-fill"></div>
+              </div>
+            </div>
+            <p class="attr-desc">影响随机事件的结果</p>
+          </div>
+        </div>
+        
+        <button class="btn btn-secondary" id="random-attrs-btn">🎲 随机分配</button>
+        <button class="btn btn-primary" id="confirm-attrs-btn">确认属性</button>
+      </div>
+    </div>
+    
+    <!-- 家庭选择页 -->
+    <div id="family-page" class="page">
+      <div class="page-content">
+        <div class="header-section">
+          <h2>选择你的家庭背景</h2>
+          <p class="hint">你的属性会与家庭背景组合，生成独特天赋</p>
+        </div>
+        
+        <div class="family-options" id="family-options">
+          <!-- 动态生成 -->
+        </div>
+        
+        <div class="talent-preview" id="talent-preview" style="display: none;">
+          <h3>匹配天赋</h3>
+          <div class="talent-card" id="talent-card">
+            <span class="talent-icon" id="talent-icon"></span>
+            <span class="talent-name" id="talent-name"></span>
+            <p class="talent-desc" id="talent-desc"></p>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary" id="confirm-family-btn" disabled>确认选择</button>
+      </div>
+    </div>
+    
+    <!-- 游戏主界面 -->
+    <div id="game-page" class="page">
+      <div class="game-container">
+        <!-- 顶部状态栏 -->
+        <div class="status-bar">
+          <div class="stage-info">
+            <span class="stage-icon" id="stage-icon">👶</span>
+            <span class="stage-name" id="stage-name">童年</span>
+          </div>
+          <div class="age-info">
+            <span id="current-age">6岁</span>
+          </div>
+        </div>
+        
+        <!-- 属性显示 -->
+        <div class="game-attributes">
+          <div class="game-attr-item">
+            <span class="game-attr-icon">💰</span>
+            <div class="game-attr-bar">
+              <div class="game-attr-fill wealth" id="wealth-bar"></div>
+            </div>
+            <span class="game-attr-value" id="wealth-value">50</span>
+          </div>
+          <div class="game-attr-item">
+            <span class="game-attr-icon">📚</span>
+            <div class="game-attr-bar">
+              <div class="game-attr-fill knowledge" id="knowledge-bar"></div>
+            </div>
+            <span class="game-attr-value" id="knowledge-value">50</span>
+          </div>
+          <div class="game-attr-item">
+            <span class="game-attr-icon">😊</span>
+            <div class="game-attr-bar">
+              <div class="game-attr-fill happiness" id="happiness-bar"></div>
+            </div>
+            <span class="game-attr-value" id="happiness-value">50</span>
+          </div>
+          <div class="game-attr-item">
+            <span class="game-attr-icon">❤️</span>
+            <div class="game-attr-bar">
+              <div class="game-attr-fill health" id="health-bar"></div>
+            </div>
+            <span class="game-attr-value" id="health-value">50</span>
+          </div>
+        </div>
+        
+        <!-- 人物形象 -->
+        <div class="character-display">
+          <div class="pixel-character large" id="game-character">
+            <div class="character-body"></div>
+          </div>
+          <div class="character-name" id="character-name">你</div>
+          <div class="character-talent" id="character-talent"></div>
+        </div>
+        
+        <!-- 剧情区域 -->
+        <div class="story-area">
+          <div class="story-text" id="story-text">
+            故事即将开始...
+          </div>
+        </div>
+        
+        <!-- 选项区域 -->
+        <div class="choices-area" id="choices-area">
+          <!-- 动态生成选项 -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- 结局页 -->
+    <div id="ending-page" class="page">
+      <div class="page-content">
+        <div class="ending-header">
+          <div class="ending-icon" id="ending-icon">🏆</div>
+          <h1 class="ending-title" id="ending-title">人生落幕</h1>
+        </div>
+        
+        <div class="ending-portrait">
+          <div class="pixel-character xlarge" id="ending-character">
+            <div class="character-body"></div>
+          </div>
+        </div>
+        
+        <div class="ending-card">
+          <h2 class="ending-name" id="ending-name">平凡一生</h2>
+          <p class="ending-desc" id="ending-desc">你度过了平凡的一生...</p>
+        </div>
+        
+        <div class="ending-stats">
+          <h3>人生总结</h3>
+          <div class="stat-item">
+            <span class="stat-label">最终财富</span>
+            <span class="stat-value" id="final-wealth">50</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">最终学识</span>
+            <span class="stat-value" id="final-knowledge">50</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">最终快乐</span>
+            <span class="stat-value" id="final-happiness">50</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">最终健康</span>
+            <span class="stat-value" id="final-health">50</span>
+          </div>
+        </div>
+        
+        <div class="ending-message" id="ending-message">
+          <p>每个人的人生都有独特的精彩，游戏中的结局不代表任何价值判断。</p>
+        </div>
+        
+        <button class="btn btn-primary" id="restart-btn">重新开始</button>
+      </div>
+    </div>
+    
+  </div>
+  
+  <script src="game-data.js"></script>
+  <script src="game-engine.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
