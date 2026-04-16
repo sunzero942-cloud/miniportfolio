@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人生模拟器游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-content {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #3498db;
+    }
+
+    .project-content p {
+      margin-bottom: 1.5rem;
+      color: #7f8c8d;
+    }
+
+    .demo-section {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .demo-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #3498db;
+    }
+
+    .demo-container {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .demo-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-item {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding: 2rem;
+      background-color: #2c3e50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="back-link">← 返回首页</a>
+      <h1>人生模拟器游戏</h1>
+    </header>
+
+    <div class="project-content">
+      <h2>项目介绍</h2>
+      <p>人生模拟器是一个互动游戏，玩家可以通过做出不同的选择，体验不同的人生路径和结果。游戏模拟了从出生到死亡的完整人生历程，包括教育、职业、婚姻、家庭等各个方面。</p>
+      <p>玩家的每一个选择都会影响后续的人生发展，游戏会根据选择生成不同的人生故事和结局。通过这个游戏，玩家可以体验不同的人生可能性，反思自己的价值观和生活态度。</p>
+    </div>
+
+    <div class="demo-section">
+      <h2>游戏演示</h2>
+      <div class="demo-container">
+        <iframe src="../restart-life/index.html"></iframe>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>项目展示</h2>
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img src="images.life/p1.png" alt="人生模拟器游戏展示图1">
+        </div>
+        <div class="gallery-item">
+          <img src="images.life/p2.png" alt="人生模拟器游戏展示图2">
+        </div>
+        <div class="gallery-item">
+          <img src="images.life/p3.png" alt="人生模拟器游戏展示图3">
+        </div>
+        <div class="gallery-item">
+          <img src="images.life/p4.png" alt="人生模拟器游戏展示图4">
+        </div>
+        <div class="gallery-item">
+          <img src="images.life/p5.png" alt="人生模拟器游戏展示图5">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 补充小项目</p>
+  </footer>
+</body>
+</html>

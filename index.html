@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品集</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+
+    .project-card.life-simulator::before {
+      background: linear-gradient(90deg, #F44336, #D32F2F);
+    }
+
+    .project-card.philosophy-test::before {
+      background: linear-gradient(90deg, #2196F3, #0b7dda);
+    }
+
+    .project-card.mood-cabin::before {
+      background: linear-gradient(90deg, #FF9800, #F57C00);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    .project-card.life-simulator h2 {
+      color: #F44336;
+    }
+
+    .project-card.philosophy-test h2 {
+      color: #2196F3;
+    }
+
+    .project-card.mood-cabin h2 {
+      color: #FF9800;
+    }
+
+    .project-card p {
+      margin-bottom: 2rem;
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .project-card a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card.life-simulator a {
+      background-color: #F44336;
+    }
+
+    .project-card.philosophy-test a {
+      background-color: #2196F3;
+    }
+
+    .project-card.mood-cabin a {
+      background-color: #FF9800;
+      color: white;
+    }
+
+    .project-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card.life-simulator a:hover {
+      background-color: #D32F2F;
+    }
+
+    .project-card.philosophy-test a:hover {
+      background-color: #0b7dda;
+    }
+
+    .project-card.mood-cabin a:hover {
+      background-color: #F57C00;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 6rem;
+      padding: 3rem;
+      background-color: #2c3e50;
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    footer p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      header {
+        padding: 2rem 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>补充小项目</h1>
+      <p class="subtitle">个人项目展示</p>
+    </header>
+
+    <div class="projects-grid">
+      <div class="project-card mood-cabin">
+        <h2>心绪阁</h2>
+        <p>一个给自己看的情绪收纳室小程序，旨在帮助用户记录和管理自己的情绪。通过简单直观的界面，用户可以轻松记录每天的情绪状态，查看情绪变化趋势，以及通过仪式化的方式处理情绪。</p>
+        <a href="mood-cabin.html">查看详情</a>
+      </div>
+
+      <div class="project-card philosophy-test">
+        <h2>哲学人格测试</h2>
+        <p>基于哲学思想的人格测试，帮助用户了解自己的思维方式和价值观倾向。测试通过一系列问题，评估用户在不同哲学维度上的倾向，包括理性与感性、个人主义与集体主义、理想主义与现实主义等。</p>
+        <a href="philosophy-test.html">查看详情</a>
+      </div>
+
+      <div class="project-card life-simulator">
+        <h2>人生模拟器游戏</h2>
+        <p>一个模拟人生历程的互动游戏，玩家可以做出各种选择，体验不同的人生路径和结果。游戏模拟了从出生到死亡的完整人生历程，包括教育、职业、婚姻、家庭等各个方面。</p>
+        <a href="life-simulator.html">查看详情</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 补充小项目</p>
+  </footer>
+</body>
+</html>
